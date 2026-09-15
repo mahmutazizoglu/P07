@@ -1,5 +1,5 @@
 from ex0.factories import CreatureFactory
-from ex1 import HealingCreatureFactory, TransforCreatureFactory
+from ex1 import HealingCreatureFactory, TransformCreatureFactory
 from ex1.capabilities import HealCapability, TransformCapability
 
 
@@ -46,7 +46,7 @@ def test_transform(factory: CreatureFactory) -> None:
 
 def main() -> None:
     healing_factory = HealingCreatureFactory()
-    transform_factory = TransforCreatureFactory()
+    transform_factory = TransformCreatureFactory()
 
     test_heailing(healing_factory)
     test_transform(transform_factory)
