@@ -10,7 +10,7 @@ from ex2 import (
 
 Opponent = tuple[CreatureFactory, BattleStrategy]
 
-FACTOR_LABELS = {
+FACTORY_LABELS = {
     FlameFactory: "Flameling",
     AquaFactory: "Aquabub",
     HealingCreatureFactory: "Healing",
@@ -19,13 +19,13 @@ FACTOR_LABELS = {
 
 
 def opponent_label(factory: CreatureFactory, strategy: BattleStrategy) -> str:
-    factory_label = FACTOR_LABELS[type(factory)]
+    factory_label = FACTORY_LABELS[type(factory)]
     strategy_label = type(strategy).__name__.replace("Strategy", "")
     return (f"{factory_label}+{strategy_label}")
 
 
 def battle(opponents: list[Opponent]) -> None:
-    """make every opponent fight every other opponent fight once."""
+    """make every opponent fight every other opponent once."""
     fighters = [
         (factory.create_base(), strategy) for factory, strategy in opponents
     ]
@@ -80,7 +80,7 @@ def main() -> None:
     run_tournament("1 (error)", tournament_1)
 
     tournament_2: list[Opponent] = [
-        (AquaFactory(), AggressiveStrategy()),
+        (AquaFactory(), NormalStrategy()),
         (HealingCreatureFactory(), DefensiveStrategy()),
         (TransformCreatureFactory(), AggressiveStrategy()),
     ]
